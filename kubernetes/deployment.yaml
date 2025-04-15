@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task6-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: task6-app
+  template:
+    metadata:
+      labels:
+        app: task6-app
+    spec:
+      containers:
+        - name: task6-app
+          image: kexincheng/task6-app:v1
+          ports:
+            - containerPort: 3000
