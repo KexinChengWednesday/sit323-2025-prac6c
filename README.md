@@ -28,9 +28,8 @@ Steps to Run:
 
 Create the Repository:
 
-
-git clone https://github.com/your-username/sit323-2025-prac6c.git
 cd sit323-2025-prac6c
+
 Build and Push Docker Image:
 
 
@@ -38,20 +37,23 @@ docker build -t task6-app:v1 .
 docker tag task6-app:v1 kexincheng/task6-app:v1
 docker login
 docker push kexincheng/task6-app:v1
+
 Deploy to Kubernetes:
 
 
 kubectl apply -f kubernetes/deployment.yaml
 kubectl apply -f kubernetes/service.yaml
+
 Verify:
 
 
 kubectl get pods
 kubectl get services
+
 Access the App: If EXTERNAL-IP is pending, use port-forward:
 
-
 kubectl port-forward service/task6-app-service 8888:80
+
 Then visit:
 http://localhost:8888
 
